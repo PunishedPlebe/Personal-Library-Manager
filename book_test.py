@@ -1,4 +1,5 @@
 from book import Book
+import copy
 
 def book_test():
     print("Welcome to The Book Object Test Module")
@@ -41,7 +42,7 @@ def book_test():
     print("======================================")
     print("Testing Setter Type Exceptions...")
     print("======================================")
-    test_book2 = master_test_book
+    test_book2 = copy.deepcopy(master_test_book)
     try:
        test_book2.set_title(123)
     except Exception as e:
