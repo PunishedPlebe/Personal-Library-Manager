@@ -71,6 +71,18 @@ def book_test():
        test_book2.set_id("123")
     except Exception as e:
         print(e)
+    print("======================================")
+    print("Testing getters Exceptions...")
+    print("======================================")
+    testbook_3 = copy.deepcopy(master_test_book)
+    print(testbook_3.get_title())
+    print(testbook_3.get_author())
+    print(testbook_3.get_publish_date())
+    print(testbook_3.get_genre())
+    print(testbook_3.get_isbn())
+    print(testbook_3.get_read_status())
+    print(testbook_3.get_id())
+
 
 
 book_test()
