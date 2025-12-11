@@ -45,10 +45,37 @@ def library_test():
     test_library3.add_book(test_book6)
     print("Printing Libarary to Ensure Population")
     print(test_library3)
-    test_library3.modify_book(test_book1, "Mod Title", "Mod Author", "Mod_date", "Mod genre", 98765432110, True)
-    test_library3.modify_book(test_book3, "Mod Title 2", "Mod Author 2", "Mod Date 3", "Mod Genre 2", 12345678920, True)
+    test_library3.modify_book(test_book4, "Mod Title", "Mod Author", "Mod_date", "Mod genre", 98765432110, True)
+    test_library3.modify_book(test_book6, "Mod Title 2", "Mod Author 2", "Mod Date 3", "Mod Genre 2", 12345678920, True)
     print("Printing Modified Library to Ensure Proper Modification")
     print(test_library3)
+    print("Attempting Bad Modifies to Test method exceptions")
+    try:
+        test_library3.modify_book(test_book5, 123, "Bad Mod Test Author", "Bad Mod date", "Bad Mod Genre", 5555555555555, True)
+    except Exception as e:
+        print(e)
+    try:
+        test_library3.modify_book(test_book5, "Bad Mod Test Title", 2, "Bad Mod date", "Bad Mod Genre", 5555555555555, True)
+    except Exception as e:
+        print(e)
+    try:
+        test_library3.modify_book(test_book5, "Bad Mod Test Title", "Bad Mod Test Author", 1234, "Bad Mod Genre", 5555555555555, True)
+    except Exception as e:
+        print(e)
+    try:
+        test_library3.modify_book(test_book5, "Bad Mod Test Title", "Bad Mod Test Author", "Bad Mod date", 123, 5555555555555, True)
+    except Exception as e:
+        print(e)
+    try:
+        test_library3.modify_book(test_book5, "Bad Mod Test Title", "Bad Mod Test Author", "Bad Mod date", "Bad Mod Genre", "5555555555555", True)
+    except Exception as e:
+        print(e)
+    try:
+        test_library3.modify_book(test_book5, "Bad Mod Test Title", "Bad Mod Test Author", "Bad Mod date", "Bad Mod Genre", 5555555555555, "True")
+    except Exception as e:
+        print(e)
+
+
     print("==================================")
     print("Testing Library Search Method")
     print("")
@@ -65,9 +92,11 @@ def library_test():
     print(test_library4.search_library("Adventure/Philosophical")[0])
     print(test_library4.search_library(9780061122415)[0])
     print(test_library4.search_library(False))
+    print("")
+    print("Testing Bad Search")
+    print(test_library4.search_library("Some bs that isn't actually in there"))
     print("===================================")
-    
-
+    #I need to add more robust testing for my library functions i'm only really taking the good path rn and i need to try and break them
 
 
     

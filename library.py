@@ -66,26 +66,28 @@ class Library:
         holder_lst = []
         for book in self.__catalog:
             if isinstance(target, str):
-                print("DEBUG: DO WE GET THIS FAR?")
                 if book.get_title() == target:
-                    print("DEBUG: FOUND TITLE ADDING TO LIST")
+                    #print("DEBUG: FOUND TITLE ADDING TO LIST")
                     holder_lst.append(book)
                 elif book.get_author() == target:
-                    print("DEBUG: FOUND AUTHOR ADDING TO LIST")
+                    #print("DEBUG: FOUND AUTHOR ADDING TO LIST")
                     holder_lst.append(book)
                 elif book.get_publish_date() == target:
-                    print("DEBUG: FOUND DATE ADDING TO LIST")
+                    #print("DEBUG: FOUND DATE ADDING TO LIST")
                     holder_lst.append(book)
                 elif book.get_genre() == target:
-                    print("DEBUG: FOUND GENRE ADDING TO LIST")
+                    #print("DEBUG: FOUND GENRE ADDING TO LIST")
                     holder_lst.append(book)
             if isinstance(target, int):
                 if book.get_isbn() == target:
-                    print("DEBUG: FOUND ISBN ADDING TO LIST")
+                    #print("DEBUG: FOUND ISBN ADDING TO LIST")
+                    holder_lst.append(book)
+                if book.get_id() == target:
+                    #print("DEBUG: FOUND ID ADDING TO LIST")
                     holder_lst.append(book)
             if isinstance(target, bool):
                 if book.get_read_status() == target:
-                    print("DEBUG: FOUND READ STATUS ADDING TO LIST")
+                    #print("DEBUG: FOUND READ STATUS ADDING TO LIST")
                     holder_lst.append(book)
         if len(holder_lst) > 0:
             return(holder_lst)
