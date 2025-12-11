@@ -9,7 +9,6 @@ def library_test():
     print("Testing Library Constructor")
     print("")
     master_test_library = Library()
-    print(master_test_library.catalog)
     print("")
     print("==================================")
     print("Testing Library add_book Method")
@@ -42,9 +41,15 @@ def library_test():
     test_book4 = Book("The Alchemist", "Paulo Coelho", "1988", "Adventure/Philosophical", 9780061122415, 1, False)
     test_book5 = Book("The Shadow of the Wind", "Carlos Ruiz Zafón", "2001", "Mystery / Historical Fiction", 9780143034908, 2, False)
     test_book6 = Book("Project Hail Mary", "Andy Weir", "2021", "Science Fiction", 9780593135204, 3, False)
-    test_library2.add_book(test_book4)
-    test_library2.add_book(test_book5)
-    test_library2.add_book(test_book6)
+    test_library3.add_book(test_book4)
+    test_library3.add_book(test_book5)
+    test_library3.add_book(test_book6)
+    print("Printing Libarary to Ensure Population")
+    print(test_library3)
+    test_library3.modify_book(test_book1, "Mod Title", "Mod Author", "Mod_date", "Mod genre", 98765432110, True)
+    test_library3.modify_book(test_book3, "Mod Title 2", "Mod Author 2", "Mod Date 3", "Mod Genre 2", 12345678920, True)
+    print("Printing Modified Library to Ensure Proper Modification")
+    print(test_library3)
 
 
     
