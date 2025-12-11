@@ -65,34 +65,26 @@ class Library:
     def search_library(self, target):
         holder_lst = []
         for book in self.__catalog:
-            if isinstance(target, str):
-                if book.get_title() == target:
-                    #print("DEBUG: FOUND TITLE ADDING TO LIST")
-                    holder_lst.append(book)
-                elif book.get_author() == target:
-                    #print("DEBUG: FOUND AUTHOR ADDING TO LIST")
-                    holder_lst.append(book)
-                elif book.get_publish_date() == target:
-                    #print("DEBUG: FOUND DATE ADDING TO LIST")
-                    holder_lst.append(book)
-                elif book.get_genre() == target:
-                    #print("DEBUG: FOUND GENRE ADDING TO LIST")
-                    holder_lst.append(book)
-            if isinstance(target, int):
-                if book.get_isbn() == target:
-                    #print("DEBUG: FOUND ISBN ADDING TO LIST")
-                    holder_lst.append(book)
-                if book.get_id() == target:
-                    #print("DEBUG: FOUND ID ADDING TO LIST")
-                    holder_lst.append(book)
-            if isinstance(target, bool):
-                if book.get_read_status() == target:
-                    #print("DEBUG: FOUND READ STATUS ADDING TO LIST")
-                    holder_lst.append(book)
+            if self.book_matches(book, target) == True:
+                holder_lst.append(book)
         if len(holder_lst) > 0:
             return(holder_lst)
         else:
             print(f"{target} was not found in the library")
+
+    def book_matches(self, book, target): # Method that takes a book object and a target input and looks to see if any of the values stored in the book attribute match that target
+        if isinstance(target, str):
+            if book.get_title() == target or book.get_author() == target or book.get_publish_date() == target or book.get_genre() == target:
+                return True
+        elif isinstance(target, bool):
+            if book.get_read_status() == target:
+                return True
+        elif isinstance(target, int):
+            if book.get_isbn() == target or book.get_id() == target:
+                return True
+        else:
+            False
+
         
 
 
