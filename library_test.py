@@ -34,9 +34,8 @@ def library_test():
     print(f"Printing Library to Ensure Proper Removal")
     print(test_library2)
     print("==================================")
-    print("")
-
     print("Testing Library Modify Method")
+    print("")
     test_library3 = copy.deepcopy(master_test_library)
     test_book4 = Book("The Alchemist", "Paulo Coelho", "1988", "Adventure/Philosophical", 9780061122415, 1, False)
     test_book5 = Book("The Shadow of the Wind", "Carlos Ruiz Zafón", "2001", "Mystery / Historical Fiction", 9780143034908, 2, False)
@@ -50,6 +49,25 @@ def library_test():
     test_library3.modify_book(test_book3, "Mod Title 2", "Mod Author 2", "Mod Date 3", "Mod Genre 2", 12345678920, True)
     print("Printing Modified Library to Ensure Proper Modification")
     print(test_library3)
+    print("==================================")
+    print("Testing Library Search Method")
+    print("")
+    test_library4 = copy.deepcopy(master_test_library)
+    test_book7 = Book("The Alchemist", "Paulo Coelho", "1988", "Adventure/Philosophical", 9780061122415, 1, False)
+    test_book8 = Book("The Shadow of the Wind", "Carlos Ruiz Zafón", "2001", "Mystery / Historical Fiction", 9780143034908, 2, False)
+    test_book9 = Book("Project Hail Mary", "Andy Weir", "2021", "Science Fiction", 9780593135204, 3, False)
+    test_library4.add_book(test_book7)
+    test_library4.add_book(test_book8)
+    test_library4.add_book(test_book9)
+    print(test_library4.search_library("The Alchemist")[0])
+    print(test_library4.search_library("Andy Weir")[0])
+    print(test_library4.search_library("2001")[0])
+    print(test_library4.search_library("Adventure/Philosophical")[0])
+    print(test_library4.search_library(9780061122415)[0])
+    print(test_library4.search_library(False))
+    print("===================================")
+    
+
 
 
     

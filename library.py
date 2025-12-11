@@ -24,6 +24,18 @@ class Library:
 
 
     def modify_book(self, book, title, author, pub_date, genre, isbn, read_status):
+        if not isinstance(title, str):
+            raise TypeError("Title must be a string")
+        if not isinstance(author, str):
+            raise TypeError("Author must be a string")
+        if not isinstance(pub_date, str):
+            raise TypeError("Date must be a string")
+        if not isinstance(genre, str):
+            raise TypeError("Genre must be a string")
+        if not isinstance(isbn, int):
+            raise TypeError("isbn must be an Int")
+        if not isinstance(read_status, bool):
+            raise TypeError("read status must be a bool")
         new_title = title
         new_author = author
         new_date = pub_date
@@ -49,8 +61,39 @@ class Library:
         else:
             print("The Book You Are Trying To Modify Does Not Exist In This Library")
     
+    
+    def search_library(self, target):
+        holder_lst = []
+        for book in self.__catalog:
+            if isinstance(target, str):
+                print("DEBUG: DO WE GET THIS FAR?")
+                if book.get_title() == target:
+                    print("DEBUG: FOUND TITLE ADDING TO LIST")
+                    holder_lst.append(book)
+                elif book.get_author() == target:
+                    print("DEBUG: FOUND AUTHOR ADDING TO LIST")
+                    holder_lst.append(book)
+                elif book.get_publish_date() == target:
+                    print("DEBUG: FOUND DATE ADDING TO LIST")
+                    holder_lst.append(book)
+                elif book.get_genre() == target:
+                    print("DEBUG: FOUND GENRE ADDING TO LIST")
+                    holder_lst.append(book)
+            if isinstance(target, int):
+                if book.get_isbn() == target:
+                    print("DEBUG: FOUND ISBN ADDING TO LIST")
+                    holder_lst.append(book)
+            if isinstance(target, bool):
+                if book.get_read_status() == target:
+                    print("DEBUG: FOUND READ STATUS ADDING TO LIST")
+                    holder_lst.append(book)
+        if len(holder_lst) > 0:
+            return(holder_lst)
+        else:
+            print(f"{target} was not found in the library")
+        
 
-                
+
     def __str__(self):
         holder = []
         for item in self.__catalog:
