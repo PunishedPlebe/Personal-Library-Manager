@@ -1,5 +1,5 @@
 class Book:
-    def __init__(self, title, author, publish_date, genre, ISBN, read_status=False, ID=1):
+    def __init__(self, title, author, publish_date, genre, ISBN, ID, read_status=False):
         if not isinstance(title, str):
             raise TypeError("Title Value Must Be A String")
         if not isinstance(author, str):
@@ -19,8 +19,8 @@ class Book:
         self.__date = publish_date
         self.__genre = genre
         self.__isbn = ISBN
-        self.__read_status = read_status
         self.__id = ID
+        self.__read_status = read_status
     
     def get_title(self):
         return self.__title

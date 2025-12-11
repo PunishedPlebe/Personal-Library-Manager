@@ -6,37 +6,37 @@ def book_test():
     print("======================================")
     print("Testing Book Class Constructor...")
     print("======================================")
-    master_test_book = Book("The Alchemist", "Paulo Coelho", "1988", "Adventure/Philosophical", 9780061122415)
+    master_test_book = Book("The Alchemist", "Paulo Coelho", "1988", "Adventure/Philosophical", 9780061122415, 1)
     print(master_test_book)
     print("======================================")
     print("Testing Constructor Type Exceptions...")
     print("======================================")
     try:
-        test_book1 = Book(987, "Test Author", "Test Date", "Test Genre", 123456789, False, 1) # attempting to trip title string exception
+        test_book1 = Book(987, "Test Author", "Test Date", "Test Genre", 123456789, 1, False) # attempting to trip title string exception
     except Exception as e:
         print(e)
     try:
-        test_book1 = Book("Test Title", 123, "Test Date", "Test Genre", 123456789, False, 1) # attempting to trip author string exception
+        test_book1 = Book("Test Title", 123, "Test Date", "Test Genre", 123456789, 1, False,) # attempting to trip author string exception
     except Exception as e:
         print(e)
     try:
-        test_book1 = Book("Test Title", "Test Author", 123, "Test Genre", 123456789, False, 1) # attempting to trip date string exception
+        test_book1 = Book("Test Title", "Test Author", 123, "Test Genre", 123456789, 1, False) # attempting to trip date string exception
     except Exception as e:
         print(e)
     try:
-        test_book1 = Book("Test Title", "Test Author", "Test Date", 123, 123456789, False, 1) # attempting to trip genre string exception
+        test_book1 = Book("Test Title", "Test Author", "Test Date", 123, 123456789, 1, False) # attempting to trip genre string exception
     except Exception as e:
         print(e)
     try:
-        test_book1 = Book("Test Title", "Test Author", "Test Date", "Test Genre", "123456789", False, 1) # attempting to trip ISBN Int exception
+        test_book1 = Book("Test Title", "Test Author", "Test Date", "Test Genre", "123456789", 1, False) # attempting to trip ISBN Int exception
     except Exception as e:
         print(e)
     try:
-        test_book1 = Book("Test Title", "Test Author", "Test Date", "Test Genre", 123456789, "False", 1) # attempting to trip Read Status bool exception
+        test_book1 = Book("Test Title", "Test Author", "Test Date", "Test Genre", 123456789, 1, "False") # attempting to trip Read Status bool exception
     except Exception as e:
         print(e)
     try:
-        test_book1 = Book("test Title", "Test Author", "Test Date", "Test Genre", 123456789, False, "6") # attempting to trip book id int exception
+        test_book1 = Book("test Title", "Test Author", "Test Date", "Test Genre", 123456789, "6", False,) # attempting to trip book id int exception
     except Exception as e:
         print(e)
     print("======================================")
@@ -72,7 +72,7 @@ def book_test():
     except Exception as e:
         print(e)
     print("======================================")
-    print("Testing getters Exceptions...")
+    print("Testing getters method...")
     print("======================================")
     testbook_3 = copy.deepcopy(master_test_book)
     print(testbook_3.get_title())
