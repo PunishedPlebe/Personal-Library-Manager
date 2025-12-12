@@ -85,6 +85,9 @@ class Library:
         else:
             False
 
+    def content(self):
+        return self.__catalog
+
         
 
 
