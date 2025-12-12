@@ -62,7 +62,7 @@ class Library:
             print("The Book You Are Trying To Modify Does Not Exist In This Library")
     
     
-    def search_library(self, target):
+    def search_library(self, target): #Method That loops thought all the books in the catalog and check to see if any match the target value and returns a list of book objects that match the target
         holder_lst = []
         for book in self.__catalog:
             if self.book_matches(book, target) == True:
