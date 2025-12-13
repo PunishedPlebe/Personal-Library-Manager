@@ -9,3 +9,7 @@ class Builder:
         self.__next_id += 1
         return new_book
 
+    def set_id(self, id):
+        if not isinstance(id, int):
+            raise TypeError ("ID must be an Integer")
+        self.__next_id = id

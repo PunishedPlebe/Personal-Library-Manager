@@ -1,10 +1,18 @@
+from book import Book
 from library import Library
 from book_builder import Builder
 from file_writer import File_Writer
+from file_reader import File_Reader
 
 def main():
     book_constructor = Builder()
     lib = Library()
+    file_reader = File_Reader()
+    book_lst = file_reader.read_file("library_catalog.txt")
+    for element in book_lst:
+        lib.add_book(element)
+    last_index = len(lib.content()) - 1
+    book_constructor.set_id((lib.content()[last_index].get_id()) + 1)
     program_running = True
     while program_running:
         print("welcome to Library Manager!")
