@@ -83,7 +83,7 @@ class Library:
             if book.get_isbn() == target or book.get_id() == target:
                 return True
         else:
-            False
+            return False
 
     def content(self):
         return self.__catalog

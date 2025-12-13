@@ -9,9 +9,9 @@ class File_Reader:
         try:
             with open(file_name, "r") as f:
                 for line in f:
-                    line.strip("\n")
-                    book_info = line.split(",")
-                    saved_book_lst.append(Book(book_info[0], book_info[1], book_info[2], book_info[3],int(book_info[4]),int(book_info[5]),bool(book_info[6])))
+                    new_line = line.strip("\n")
+                    book_info = new_line.split(",")
+                    saved_book_lst.append(Book(book_info[0], book_info[1], book_info[2], book_info[3],int(book_info[4]),int(book_info[5]),bool(book_info[6].strip() == "True")))
             return(saved_book_lst)
         except Exception as e:
             print(e)

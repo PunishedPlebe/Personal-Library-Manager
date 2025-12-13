@@ -141,7 +141,7 @@ def get_isbn_from_user():
             try:
                 isbn = int(user_input)
                 return isbn
-            except TypeError:
+            except ValueError:
                 print("Invalid Input, ISBN must be an Integer")
 
 def get_id_from_user():
@@ -150,7 +150,7 @@ def get_id_from_user():
         try:
             book_id = int(user_input)
             return book_id
-        except TypeError:
+        except ValueError:
             print("Invalid Input, ID must be an Integer")
 
 def get_selection_from_user():
@@ -159,8 +159,8 @@ def get_selection_from_user():
         try:
             selection_num = int(user_input)
             return selection_num
-        except TypeError:
-            print("Invalid Input, ID must be an Integer")
+        except ValueError:
+            print("Invalid Input, selction must be an Int")
 
 def get_date_from_user():
     while True:
